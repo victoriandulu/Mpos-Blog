@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POS Blog</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <header class="header">
+    <div class="logo">POS Blog</div>
+    <button class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </button>
+    <nav class="nav">
+      <div class="nav-links" id="nav-links">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#ratings">Ratings</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section id="home" class="blog-section">
+      <h1> How POS Systems Improve Business</h1>
+      <article class="blog-post">
+        <p class="blog-date">Posted on: January 9, 2025</p>
+        <p class="blog-text">A modern POS system streamlines operations, enhances customer experiences, and increases profitability.</p>
+        
+        <div class="slideshow-container">
+          <div class="slide fade">
+            <img src="gold.png" alt="POS System Overview 1" class="blog-image">
+          </div>
+          <div class="slide fade">
+            <img src="profile.jpg" alt="POS System Overview 2" class="blog-image">
+          </div>
+          <div class="slide fade">
+            <img src="gold.png" alt="POS System Overview 3" class="blog-image">
+          </div>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <audio controls>
+          <source src="about-galaxies.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </article>
+
+      <article class="blog-post">
+        <h2 class="blog-title">Top POS Features for 2025</h2>
+        <p class="blog-date">Posted on: January 8, 2025</p>
+        <p class="blog-text">Learn about the key features of POS systems that will dominate in 2025, including advanced analytics and mobile compatibility.</p>
+        <audio controls>
+          <source src="about-galaxies.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <img src="gold.png" alt="POS Features" class="blog-image">
+      </article>
+    </section>
+
+    <section id="ratings" class="ratings-section">
+      <h2>Client Ratings</h2>
+      <!-- Rating Form -->
+      <h3>Rate the POS System</h3>
+      <form id="ratingForm" class="compact-form">
+        <div class="form-group">
+          <label for="name" class="form-label">Your Name:</label>
+          <input type="text" id="name" name="name" class="form-input" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="rating" class="form-label">Rating:</label>
+          <select id="rating" name="rating" class="form-select" required>
+            <option value="5">5 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="2">2 Stars</option>
+            <option value="1">1 Star</option>
+          </select>
+        </div>
+      
+        <div class="form-group">
+          <label for="message" class="form-label">Message:</label>
+          <textarea id="message" name="message" rows="2" class="form-textarea" required></textarea>
+        </div>
+      
+        <button type="submit" class="submit-button">Submit Rating</button>
+      </form>
+      
+      <div id="clientRatings">
+        <h3>Recent Ratings</h3>
+        <div id="ratingsList">
+          <!-- Ratings will be displayed here -->
+           <!-- Hardcoded Ratings -->
+          <div class="rating-card">
+            <h3>John Doe</h3>
+            <div class="rating-stars">★★★★★</div>
+            <p>Rated 5 Stars</p>
+            <p>Message: Excellent system, highly recommended!</p>
+          </div>
+          <div class="rating-card">
+            <h3>Jane Smith</h3>
+            <div class="rating-stars">★★★★★</div>
+            <p>Rated 4 Stars</p>
+            <p>Message: Very good, but could use some improvements.</p>
+          </div>
+          <div class="rating-card">
+            <h3>Mark Johnson</h3>
+            <div class="rating-stars">★★★★★</div>
+            <p>Rated 3 Stars</p>
+            <p>Message: It's okay, but it could be more user-friendly.</p>
+          </div>
+          <div class="rating-card">
+            <h3>Emily Clark</h3>
+            <div class="rating-stars">★★★★☆</div>
+            <p>Rated 4 Stars</p>
+            <p>Message: Good overall, but a bit slow at times.</p>
+          </div>
+          <div class="rating-card">
+            <h3>Michael Brown</h3>
+            <div class="rating-stars">★★★★★</div>
+            <p>Rated 5 Stars</p>
+            <p>Message: Fantastic! It's a game-changer for our business.</p>
+          </div>
+          <div class="rating-card">
+            <h3>Olivia Davis</h3>
+            <div class="rating-stars">★★★★☆</div>
+            <p>Rated 3 Stars</p>
+            <p>Message: It's functional, but lacks some features I need.</p>
+          </div>
+          <div class="rating-card">
+            <h3>James Wilson</h3>
+            <div class="rating-stars">★★★★☆</div>
+            <p>Rated 4 Stars</p>
+            <p>Message: Great product, but the interface could be better.</p>
+          </div>
+        </div>
+        </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 POS Blog. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let slideIndex = 0;
+
+    function showSlides() {
+      let slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 2000);
+    }
+
+    function plusSlides(n) {
+      slideIndex += n;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      if (slideIndex < 1) { slideIndex = slides.length }
+      showSlides();
+    }
+
+    showSlides();
+
+    // Handle rating form submission
+    const ratingForm = document.getElementById('ratingForm');
+    const ratingsList = document.getElementById('ratingsList');
+
+    ratingForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const rating = document.getElementById('rating').value;
+      const message = document.getElementById('message').value;
+      
+      // Create new rating element
+      const ratingCard = document.createElement('div');
+      ratingCard.classList.add('rating-card');
+      
+      const nameElement = document.createElement('h3');
+      nameElement.textContent = name;
+      
+      const stars = document.createElement('div');
+      stars.classList.add('rating-stars');
+      stars.innerHTML = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+      
+      const reviewText = document.createElement('p');
+      reviewText.textContent = `Rated ${rating} Stars`;
+      
+      const messageText = document.createElement('p');
+      messageText.textContent = `Message: ${message}`;
+      
+      ratingCard.appendChild(nameElement);
+      ratingCard.appendChild(stars);
+      ratingCard.appendChild(reviewText);
+      ratingCard.appendChild(messageText);
+      
+      // Add rating to the list
+      ratingsList.appendChild(ratingCard);
+      
+      // Clear form after submission
+      ratingForm.reset();
+    });
+
+    // Toggle hamburger menu
+    document.getElementById('hamburger').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
