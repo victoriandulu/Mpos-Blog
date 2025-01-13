@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POS Blog</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">Galaxies Coders - MPOS</div>
+    <button class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </button>
+    <nav class="nav">
+      <div class="nav-links" id="nav-links">
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#company">Company</a></li>
+          <li><a href="#ratings">Ratings</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
+            <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
+            Chat with Us
+          </a></li>
+          <li><a href="#" class="btn-consultation">Book A Free Demo</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1>Welcome to POS Blog</h1>
+          <p>Discover the latest features and ratings for our POS system!</p>
+          <a href="#features" class="btn-cta">Explore Features</a>
+        </div>
+        <div class="hero-image">
+          <img src="profile.jpg" alt="Person using POS system" />
+        </div>
+      </div>
+    </section>
+
+  
+  
+    <!-- Featured Posts Section -->
+    <section class="featured-posts">
+      <div class="post-card">
+        <img src="gold.png" alt="Post 1">
+        <h3>Post Title 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi est, facilisis in pretium a, sollicitudin non ligula.</p>
+      </div>
+      <div class="post-card">
+        <img src="gold.png" alt="Post 2">
+        <h3>Post Title 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi est, facilisis in pretium a, sollicitudin non ligula.</p>
+      </div>
+      <div class="post-card">
+        <img src="profile.jpg" alt="Post 3">
+        <h3>Post Title 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi est, facilisis in pretium a, sollicitudin non ligula.</p>
+      </div>
+    </section>
+
+    <!-- Ratings Section -->
+    <section id="ratings" class="ratings-section">
+      <h2>Client Ratings</h2>
+      <h3>Rate the POS System</h3>
+      <form id="ratingForm">
+        <div class="form-group">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating:</label>
+          <select id="rating" name="rating" required>
+            <option value="5">5 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="2">2 Stars</option>
+            <option value="1">1 Star</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="2" required></textarea>
+        </div>
+        <button type="submit">Submit Rating</button>
+      </form>
+
+      <div id="clientRatings">
+        <h3>Recent Ratings</h3>
+        <div id="ratingsList">
+          <div class="rating-card">
+            <h3>John Doe</h3>
+            <div class="rating-stars">★★★★★</div>
+            <p>Rated 5 Stars</p>
+            <p>Message: Excellent system, highly recommended!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 POS Blog. All rights reserved.</p>
+  </footer>
+
+  <button class="up-button" id="upButton">
+    &#x25B2; Up
+  </button>
+
+  <script>
+    // Hamburger menu toggle
+    document.getElementById('hamburger').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+
+    // Scroll to top button
+    const upButton = document.getElementById('upButton');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        upButton.classList.add('visible');
+      } else {
+        upButton.classList.remove('visible');
+      }
+    });
+
+    upButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    });
+
+    // Handle rating form submission
+    const ratingForm = document.getElementById('ratingForm');
+    const ratingsList = document.getElementById('ratingsList');
+    
+    ratingForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const rating = document.getElementById('rating').value;
+      const message = document.getElementById('message').value;
+
+      const ratingCard = document.createElement('div');
+      ratingCard.classList.add('rating-card');
+      ratingCard.innerHTML = `
+        <h3>${name}</h3>
+        <div class="rating-stars">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</div>
+        <p>Rated ${rating} Stars</p>
+        <p>Message: ${message}</p>
+      `;
+
+      ratingsList.appendChild(ratingCard);
+      ratingForm.reset();
+    });
+  </script>
+</body>
+</html>
