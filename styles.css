@@ -456,23 +456,22 @@ body, html {
 /* Global Reset */
 
 
-/* Hero Section Styles */
+* Hero Section Styles */
 .hero {
   display: flex;
-  align-items: center; /* Align content vertically */
-  justify-content: center; /* Center content horizontally */
-  height: 100vh; /* Full viewport height */
-  width: 100%; /* Full width of the viewport */
-  background-color: #f4f4f4; /* Adjust background color */
-  margin: 0;
-  padding: 0;
-  overflow: hidden; /* Prevent content from spilling */
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  width: 100%;
+  height: auto; /* Ensure it adjusts to the content */
+  padding: 0; /* Remove any padding */
+  margin: 0; /* Remove any margin */
 }
 
+/* Hero Container */
 .hero-container {
   display: flex;
   flex-wrap: wrap; /* Handle content wrapping on smaller screens */
-  width: 100%; /* Full width of the parent */
+  width: 100%;
   max-width: 1200px; /* Optional: restrict content width */
   margin: auto; /* Center the container horizontally */
   padding: 20px; /* Optional: Add padding for spacing */
@@ -480,20 +479,10 @@ body, html {
 
 /* Hero Content */
 .hero-content {
-  flex: 1; /* Allow it to grow/shrink based on space */
+  flex: 1; /* Allow the content to grow/shrink */
   padding: 20px;
-}
-
-.hero-image img {
-  max-width: 100%; /* Ensure the image does not exceed container width */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Remove inline gap below images */
-}
-
-.hero-content {
-  flex: 1;
-  max-width: 50%;
-  padding: 20px;
+  background-color: whitesmoke;
+  margin-right: 20px; /* Add margin to the right to create space between image */
 }
 
 .hero-content h1 {
@@ -505,6 +494,10 @@ body, html {
 .hero-content p {
   font-size: 1.2rem;
   color: black;
+  margin-bottom: 30px;
+}
+
+.hero-content ul {
   margin-bottom: 30px;
 }
 
@@ -523,6 +516,7 @@ body, html {
   background-color: #0056b3;
 }
 
+/* Hero Image */
 .hero-image {
   flex: 1;
   max-width: 50%;
@@ -530,7 +524,9 @@ body, html {
 
 .hero-image img {
   width: 100%;
-  height: auto;
+  height: 100%; /* Make sure the image takes full height */
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+  object-position: top center; /* Keeps the top of the image visible */
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -538,14 +534,15 @@ body, html {
 /* Responsiveness for smaller screens */
 @media (max-width: 768px) {
   .hero-container {
-    flex-direction: column;
+    margin-top: 100px;
+    flex-direction: column; /* Stack content vertically */
     text-align: center;
   }
 
   .hero-content,
   .hero-image {
     max-width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Add space between image and content */
   }
 
   .hero-content h1 {
@@ -556,11 +553,19 @@ body, html {
     font-size: 1rem;
   }
 
-  .hero-image img {
-    width: 80%;
-    margin-top: 20px;
+  /* Ensure image is on top */
+  .hero-image {
+    order: -1; /* Move the image to the top on small screens */
+    width: 100%;
+    height: auto; /* Let the image height adjust based on the content */
   }
-}
+
+  .hero-image img {
+    object-fit: cover;
+    height: 300px;
+    object-position: top center;
+  }
+}  
 
 .featured-posts {
   display: grid;
@@ -595,7 +600,12 @@ body, html {
   font-size: 1em;
   color: #555;
 }
-
+.section-title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333; /* Customize the color as needed */
+  font-weight: bold;
+}
 /* Media Query for Small Screens */
 @media (max-width: 768px) {
   .featured-posts {
