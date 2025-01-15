@@ -968,3 +968,28 @@ body, html {
     padding-left: 15px;
   }
 }
+.whatsapp-chat{
+  position: fixed;
+  bottom: 200px; /* Adjusts vertical position */
+  right: 20px; /* Adjusts horizontal position */
+  z-index: 1000; /* Ensures it appears above other content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000033;
+  width: 60px; /* Icon container size */
+  height: 60px; /* Icon container size */
+  border-radius: 50%; /* Makes the icon circular */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-chat img {
+  width: 40px; /* Icon image size */
+  height: 40px;
+}
+
+.whatsapp-chat:hover {
+  transform: scale(1.1); /* Slightly enlarges the icon on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
