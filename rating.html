@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratings - POS System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Galaxies Coders - MPOS</div>
+        <button class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+        <nav class="nav">
+            <div class="nav-links" id="nav-links">
+                <ul>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#company">Company</a></li>
+                    <li><a href="#ratings">Ratings</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
+                        <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
+                        Chat with Us
+                    </a></li>
+                    <li><a href="#contact" class="btn-consultation">Book A Free Demo</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Ratings Section -->
+    <section id="ratings" class="ratings-section">
+        <h2></h2>
+        <h3>Rate the POS System</h3>
+        <form id="ratingForm" class="rating-form">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating" required>
+                    <option value="5">5 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="2">2 Stars</option>
+                    <option value="1">1 Star</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Rating</button>
+        </form>
+
+        <div id="clientRatings">
+            <h3>Recent Ratings</h3>
+            <div id="ratingsList">
+                <div class="rating-card">
+                    <h3>John Doe</h3>
+                    <div class="rating-stars">★★★★★</div>
+                    <p>Rated 5 Stars</p>
+                    <p>Message: Excellent system, highly recommended!</p>
+                </div>
+                <div class="rating-card">
+                    <h3>John Doe</h3>
+                    <div class="rating-stars">★★★★★</div>
+                    <p>Rated 5 Stars</p>
+                    <p>Message: Excellent system, highly recommended!</p>
+                </div>
+                <div class="rating-card">
+                    <h3>John Doe</h3>
+                    <div class="rating-stars">★★★★★</div>
+                    <p>Rated 5 Stars</p>
+                    <p>Message: Excellent system, highly recommended!</p>
+                </div>
+                <div class="rating-card">
+                    <h3>John Doe</h3>
+                    <div class="rating-stars">★★★★★</div>
+                    <p>Rated 5 Stars</p>
+                    <p>Message: Excellent system, highly recommended!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Galaxies Coders - MPOS. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Handle form submission
+        document.getElementById('ratingForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent page reload
+
+            const name = document.getElementById('name').value;
+            const rating = document.getElementById('rating').value;
+            const message = document.getElementById('message').value;
+
+            const newRating = `
+                <div class="rating-card">
+                    <h3>${name}</h3>
+                    <div class="rating-stars">${'★'.repeat(rating)}</div>
+                    <p>Rated ${rating} Stars</p>
+                    <p>Message: ${message}</p>
+                </div>
+            `;
+
+            document.getElementById('ratingsList').insertAdjacentHTML('beforeend', newRating);
+            alert('Thank you for your rating!');
+
+            // Reset the form
+            document.getElementById('ratingForm').reset();
+        });
+    </script>
+</body>
+</html>

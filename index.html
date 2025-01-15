@@ -23,13 +23,13 @@
         <ul>
           <li><a href="#features">Features</a></li>
           <li><a href="#company">Company</a></li>
-          <li><a href="#ratings">Ratings</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="rating.html">Ratings</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
             <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
             Chat with Us
           </a></li>
-          <li><a href="#" class="btn-consultation">Book A Free Demo</a></li>
+          <li><a href="#contact" class="btn-consultation">Book A Free Demo</a></li>
         </ul>
       </div>
     </nav>
@@ -65,18 +65,18 @@
      <h3>Ideal for a small or medium-sized business like yours.</h2>
     <section class="featured-posts">
       <div class="post-card">
-        <img src="wines.jpg" alt="Post 1">
-        <h3>Post Title 1</h3>
+        <img src="markets.jpg" alt="Post 1">
+        <h3>Mini-Supermarkes</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi est, facilisis in pretium a, sollicitudin non ligula.</p>
       </div>
       <div class="post-card">
         <img src="bookshop.jpg" alt="Post 2">
-        <h3>Post Title 2</h3>
+        <h3>Bookshops</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi est, facilisis in pretium a, sollicitudin non ligula.</p>
       </div>
       <div class="post-card">
         <img src="grocery.jpg" alt="Post 1">
-        <h3>Post Title 1</h3>
+        <h3>Groceries</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi est, facilisis in pretium a, sollicitudin non ligula.</p>
       </div>
       <div class="post-card">
@@ -86,7 +86,7 @@
       </div>
       <div class="post-card">
         <img src="wines.jpg" alt="Post 1">
-        <h3>Post Title 1</h3>
+        <h3>Liquor Stores</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi est, facilisis in pretium a, sollicitudin non ligula.</p>
       </div>
       <div class="post-card">
@@ -105,45 +105,68 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi est, facilisis in pretium a, sollicitudin non ligula.</p>
       </div>
     </section>
-
-    <!-- Ratings Section -->
-    <section id="ratings" class="ratings-section">
-      <h2>Client Ratings</h2>
-      <h3>Rate the POS System</h3>
-      <form id="ratingForm">
-        <div class="form-group">
-          <label for="name">Your Name:</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-          <label for="rating">Rating:</label>
-          <select id="rating" name="rating" required>
-            <option value="5">5 Stars</option>
-            <option value="4">4 Stars</option>
-            <option value="3">3 Stars</option>
-            <option value="2">2 Stars</option>
-            <option value="1">1 Star</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="2" required></textarea>
-        </div>
-        <button type="submit">Submit Rating</button>
-      </form>
-
-      <div id="clientRatings">
-        <h3>Recent Ratings</h3>
-        <div id="ratingsList">
-          <div class="rating-card">
-            <h3>John Doe</h3>
-            <div class="rating-stars">★★★★★</div>
-            <p>Rated 5 Stars</p>
-            <p>Message: Excellent system, highly recommended!</p>
+    <section class="demo-section">
+      <div class="container">
+        <h2 class="section-title">System Demo and Usage Guide</h2>
+        <p class="section-description">
+          Explore the system's features with example screenshots and follow the steps below to understand how to use the system effectively.
+        </p>
+        
+        <!-- Example Screenshots -->
+        <div class="screenshots-container">
+          <div class="screenshot">
+            <img src="gold.png" alt="Screenshot 1" />
+            <p class="screenshot-caption">Dashboard Overview</p>
           </div>
+          <div class="screenshot">
+            <img src="grocery.jpg" alt="Screenshot 2" />
+            <p class="screenshot-caption">User Profile Settings</p>
+          </div>
+          <div class="screenshot">
+            <img src="bookshop.jpg" alt="Screenshot 3" />
+            <p class="screenshot-caption">Contribution Page</p>
+          </div>
+        </div>
+        
+        <!-- Step-by-Step Process -->
+        <div class="steps-container">
+          <h3 class="steps-title">How to Use the System</h3>
+          <ol class="steps-list">
+            <li>
+              <strong>Step 1: Log In</strong>
+              <p>Visit the login page, enter your credentials, and click on the "Login" button.</p>
+            </li>
+            <li>
+              <strong>Step 2: Access Your Dashboard</strong>
+              <p>Once logged in, you'll be directed to the dashboard where you can access various system features.</p>
+            </li>
+            <li>
+              <strong>Step 3: Update Your Profile</strong>
+              <p>Navigate to the "Profile" section to update your personal information and settings.</p>
+            </li>
+            <li>
+              <strong>Step 4: Make a Contribution</strong>
+              <p>Go to the "Contribution" page, select the amount, and follow the instructions to complete the process.</p>
+            </li>
+            <li>
+              <strong>Step 5: View Reports</strong>
+              <p>After making a contribution, you can view transaction history and other reports under the "Reports" section.</p>
+            </li>
+          </ol>
+        </div>
+        
+        <!-- Pagination for Demo Pages -->
+        <div class="pagination">
+          <button class="prev-page">Previous</button>
+          <button class="next-page">Next</button>
         </div>
       </div>
     </section>
+
+  
+   
+ 
+
   </main>
 
   <footer class="footer">
@@ -154,7 +177,10 @@
     &#x25B2; Up
   </button>
 
-  <script>
+  
+   <script>
+
+
     // Hamburger menu toggle
     document.getElementById('hamburger').addEventListener('click', function() {
       this.classList.toggle('active');
