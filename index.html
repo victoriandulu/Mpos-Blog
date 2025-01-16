@@ -105,63 +105,74 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi est, facilisis in pretium a, sollicitudin non ligula.</p>
       </div>
     </section>
+
     <section class="demo-section">
-      <div class="container">
-        <h2 class="section-title">System Demo and Usage Guide</h2>
-        <p class="section-description">
-          Explore the system's features with example screenshots and follow the steps below to understand how to use the system effectively.
-        </p>
-        
-        <!-- Example Screenshots -->
-        <div class="screenshots-container">
-          <div class="screenshot">
-            <img src="gold.png" alt="Screenshot 1" />
-            <p class="screenshot-caption">Dashboard Overview</p>
-          </div>
-          <div class="screenshot">
-            <img src="grocery.jpg" alt="Screenshot 2" />
-            <p class="screenshot-caption">User Profile Settings</p>
-          </div>
-          <div class="screenshot">
-            <img src="bookshop.jpg" alt="Screenshot 3" />
-            <p class="screenshot-caption">Contribution Page</p>
-          </div>
+  <div class="container">
+    <!-- Section Title -->
+    <h2 class="section-title">System Demo and Usage Guide</h2>
+    <p class="section-description">
+      Explore the system's features with example screenshots and follow the steps below to understand how to use the system effectively.
+    </p>
+    
+    <!-- Dynamic Content (Will Change on Navigation) -->
+    <div id="content-container">
+      <!-- Example Screenshots for Section 1 -->
+      <div class="screenshots-container" data-section="1">
+        <div class="screenshot">
+          <img src="gold.png" alt="Screenshot 1" />
+          <p class="screenshot-caption">Dashboard Overview</p>
         </div>
-        
-        <!-- Step-by-Step Process -->
-        <div class="steps-container">
-          <h3 class="steps-title">How to Use the System</h3>
-          <ol class="steps-list">
-            <li>
-              <strong>Step 1: Log In</strong>
-              <p>Visit the login page, enter your credentials, and click on the "Login" button.</p>
-            </li>
-            <li>
-              <strong>Step 2: Access Your Dashboard</strong>
-              <p>Once logged in, you'll be directed to the dashboard where you can access various system features.</p>
-            </li>
-            <li>
-              <strong>Step 3: Update Your Profile</strong>
-              <p>Navigate to the "Profile" section to update your personal information and settings.</p>
-            </li>
-            <li>
-              <strong>Step 4: Make a Contribution</strong>
-              <p>Go to the "Contribution" page, select the amount, and follow the instructions to complete the process.</p>
-            </li>
-            <li>
-              <strong>Step 5: View Reports</strong>
-              <p>After making a contribution, you can view transaction history and other reports under the "Reports" section.</p>
-            </li>
-          </ol>
+        <div class="screenshot">
+          <img src="grocery.jpg" alt="Screenshot 2" />
+          <p class="screenshot-caption">User Profile Settings</p>
         </div>
-        
-        <!-- Pagination for Demo Pages -->
-        <div class="pagination">
-          <button class="prev-page">Previous</button>
-          <button class="next-page">Next</button>
+        <div class="screenshot">
+          <img src="bookshop.jpg" alt="Screenshot 3" />
+          <p class="screenshot-caption">Contribution Page</p>
         </div>
       </div>
-    </section>
+
+      <!-- Step-by-Step Process for Section 1 -->
+      <div class="steps-container" data-section="1">
+        <h3 class="steps-title">How to Use the System</h3>
+        <ol class="steps-list">
+          <li><strong>Step 1: Log In</strong><p>Visit the login page and enter your credentials.</p></li>
+          <li><strong>Step 2: Access Dashboard</strong><p>View system features and navigate easily.</p></li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Example for Section 2 -->
+<div class="screenshots-container" data-section="2" style="display: none;">
+  <div class="screenshot">
+    <img src="bookshop.jpg" alt="Screenshot 1" />
+    <p class="screenshot-caption">New Feature Overview</p>
+  </div>
+</div>
+<div class="screenshots-container" data-section="2" style="display: none;">
+  <div class="screenshot">
+    <img src="bookshop.jpg" alt="Screenshot 1" />
+    <p class="screenshot-caption">New Feature Overview</p>
+  </div>
+</div>
+
+<div class="steps-container" data-section="2" style="display: none;">
+  <h3 class="steps-title">Next Steps</h3>
+  <ol class="steps-list">
+    <li><strong>Step 3: Feature X</strong><p>Description of feature X.</p></li>
+    <li><strong>Step 4: Feature Y</strong><p>Description of feature Y.</p></li>
+  </ol>
+</div>
+
+
+    <!-- Pagination Buttons -->
+    <div class="pagination">
+      <button class="prev-page" onclick="navigate(-1)">Previous</button>
+      <button class="next-page" onclick="navigate(1)">Next</button>
+    </div>
+  </div>
+</section>
+
 
   
    
@@ -179,6 +190,33 @@
 
   
    <script>
+let currentSection = 1; // Start with the first section
+
+function navigate(direction) {
+  // Get all content containers
+  const sections = document.querySelectorAll('[data-section]');
+  
+  // Hide current section
+  sections.forEach((section) => {
+    if (parseInt(section.getAttribute('data-section')) === currentSection) {
+      section.style.display = 'none';
+    }
+  });
+
+  // Update current section based on direction
+  currentSection += direction;
+
+  // Show the new section
+  sections.forEach((section) => {
+    if (parseInt(section.getAttribute('data-section')) === currentSection) {
+      section.style.display = 'block';
+    }
+  });
+
+  // Disable buttons if at boundaries
+  document.querySelector('.prev-page').disabled = currentSection === 1;
+  document.querySelector('.next-page').disabled = currentSection === sections.length / 2;
+}
 
 
     // Hamburger menu toggle
