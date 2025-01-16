@@ -253,22 +253,111 @@ body, html {
   background-color: #000033;
 }
 
-/* Rating Cards */
-#clientRatings {
-  max-width: 900px;
-  margin: 40px auto;
+/* Ratings Section */
+.ratings-section {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+  margin-top: 60px; /* Space below header */
 }
 
-.rating-card {
-  background-color: white;
-  border-radius: 10px;
-  padding: 25px;
+.ratings-section h2, 
+.ratings-section h3 {
+  font-size: 2.5rem;
+  color: #222;
+  text-align: center;
   margin-bottom: 25px;
+}
+
+.rating-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 8px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
+.rating-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.rating-form label {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.rating-form input, 
+.rating-form select, 
+.rating-form textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fafafa;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rating-form input:focus, 
+.rating-form select:focus, 
+.rating-form textarea:focus {
+  border-color: #000033;
+  box-shadow: 0 0 10px rgba(0, 86, 179, 0.3);
+}
+
+.submit-btn {
+  background-color: #000033;
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #001f3d;
+  transform: scale(1.05);
+}
+
+/* Rating Cards */
+#clientRatings {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.rating-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.rating-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
 .rating-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #222;
   margin-bottom: 15px;
 }
@@ -291,11 +380,10 @@ body, html {
 @media (max-width: 768px) {
   .ratings-section {
     padding: 30px 15px;
-    margin-top: 60px; /* Space below header */
   }
 
   .rating-form {
-    padding: 15px;
+    padding: 20px;
   }
 
   .submit-btn {
@@ -312,7 +400,7 @@ body, html {
   }
 
   .rating-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   .rating-card p {
@@ -340,13 +428,14 @@ body, html {
   }
 
   .rating-card h3 {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
 
   .rating-card p {
     font-size: 1.1rem;
   }
 }
+
 
 
 .footer {
@@ -742,111 +831,7 @@ body, html {
   }
 }
 
-    /* Contact Form Section */
-#contact {
-  padding: 50px 20px;
-  background: #fff;
-  margin-top: 100px; /* Add space below the header */
-  border-radius: 10px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  width: 100%;
-  max-width: 700px;
-  margin: 100px auto 20px; /* Center horizontally and adjust vertical spacing */
-}
-
-/* Increase form size for larger screens */
-@media (min-width: 1024px) {
-  #contact {
-    max-width: 900px;
-    padding: 60px 40px;
-  }
-
-  #contact h2 {
-    font-size: 2.5em;
-  }
-
-  #contact p {
-    font-size: 1.2em;
-  }
-
-  .contact-form {
-    gap: 20px;
-  }
-
-  .cnt-form-group label {
-    font-size: 1.1em;
-  }
-
-  .cnt-form-group input,
-  .cnt-form-group textarea {
-    padding: 12px 18px;
-    font-size: 1.1em;
-  }
-
-  .cnt-submit-btn {
-    font-size: 1.1em;
-    padding: 12px 20px;
-  }
-}
-
-/* Contact Form */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-/* Form Group */
-.cnt-form-group {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.cnt-form-group label {
-  font-size: 1em;
-  color: #333;
-  width: 120px;
-  text-align: left;
-  font-weight: bold;
-}
-
-.cnt-form-group input,
-.cnt-form-group textarea {
-  flex: 1;
-  padding: 10px 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1em;
-  color: #333;
-  transition: box-shadow 0.3s ease;
-  background-color: #f3f4f6;
-}
-
-/* Input Fields */
-.cnt-form-group input:focus,
-.cnt-form-group textarea:focus {
-  outline: none;
-  box-shadow: 0 0 8px #000033;
-  border: 1px solid #000033;
-}
-
-/* Submit Button */
-.cnt-submit-btn {
-  background-color: #000033;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.cnt-submit-btn:hover {
-  background-color: #000033;
-}
+   
 
 /* Demo Section */
 .demo-section {
@@ -993,3 +978,5 @@ body, html {
   transform: scale(1.1); /* Slightly enlarges the icon on hover */
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
+/* Company css */
+

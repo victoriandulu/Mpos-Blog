@@ -45,9 +45,12 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
-            max-width: 300px;
+            max-width: 400px;
             width: 100%;
+            margin-top: 60px;
+            height: 300px;
         }
+        
 
         .card h3 {
             font-size: 1.5em;
@@ -78,7 +81,7 @@
         .footer {
             text-align: center;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
+            background: #000033;
             color: white;
             position: relative;
             z-index: 1;
@@ -103,6 +106,171 @@
         .up-button.visible {
             display: block;
         }
+        /* Individual card styles */
+.card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center; /* Vertically align the icon and text */
+    gap: 10px; /* Space between icon and text */
+}
+
+/* Phone icon styling */
+.phone-icon {
+    width: 90px; /* Adjust the size as needed */
+    height: 90px; /* Adjust the size as needed */
+    object-fit: contain;
+}
+
+        /* Responsive styles for small screens */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column; /* Stack cards vertically */
+        gap: 15px; /* Reduce gap between cards */
+        padding: 10px;
+        margin-top: 120px; /* Reduce top margin */
+    }
+
+    .card {
+        max-width: 100%; /* Allow cards to take full width */
+        margin-top: 30px; /* Reduce top margin */
+        padding: 15px; /* Adjust padding for smaller viewports */
+    }
+
+    .card h3 {
+        font-size: 1.2em; /* Smaller heading size */
+    }
+
+    .card p {
+        font-size: 0.9em; /* Smaller text size */
+    }
+
+    .card a {
+        font-size: 0.8em; /* Smaller button text */
+        padding: 8px 15px; /* Smaller button size */
+    }
+}
+
+/* Modal Styles */
+.modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 60%; /* Adjust the width as needed */
+            position: relative;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #000033;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #aaa;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Animation for Modal */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Modal Section Styling */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            margin-top: 70px;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+        }
+        #contact h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        #contact p {
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"] {
+            width: 100%;
+        }
+
+        .form-group textarea {
+            width: 100%;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #000033;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #005f7a;
+        }
     </style>
 </head>
 <body>
@@ -124,7 +292,7 @@
             <div class="nav-links" id="nav-links">
                 <ul>
                     <li><a href="index.html#features">Features</a></li>
-                    <li><a href="#company">Company</a></li>
+                    <li><a href="company.html">Company</a></li>
                     <li><a href="rating.html">Ratings</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
@@ -140,21 +308,64 @@
     <!-- Card Views -->
     <section class="card-container">
         <div class="card">
-            <h3>Advanced Features</h3>
-            <p>Explore the innovative features of our MPOS system designed for seamless transactions.</p>
-            <a href="index.html#features">Learn More</a>
+            <h3>
+                <img src="call.png" alt="Phone Icon" class="phone-icon"> 
+                Connect with our experts!
+            </h3>
+            <p>Curious to explore how MPOS can transform your business 
+                or experience it in action? Our dedicated team is here to guide you every step of the way.</p>
+            <a href="tel:+1234567890">
+                <i class="fa fa-phone"></i> CALL NOW
+            </a> 
         </div>
         <div class="card">
-            <h3>Trusted by Companies</h3>
-            <p>Our solutions are trusted by leading organizations to enhance operational efficiency.</p>
-            <a href="#company">View Details</a>
+            <h3>
+                <img src="get-in-touch.png" alt="Phone Icon" class="phone-icon"> 
+                Get in Touch with Our Team
+            </h3>
+            <p>Would you like a call from us? We're eager to arrange a conversation to understand your requirements. 
+                Simply complete the form, and we’ll reach out to you as soon as possible!
+            </p>
+            <a href="#" id="openModalBtn">
+                Get In
+            </a> 
         </div>
         <div class="card">
-            <h3>Ratings & Reviews</h3>
-            <p>See what our satisfied clients say about our exceptional services and products.</p>
-            <a href="rating.html">Read Reviews</a>
+            <h3>
+                <img src="rating.png" alt="Phone Icon" class="phone-icon"> 
+                View Ratings</h3>
+                <p>Curious about how our services are rated? Check out the feedback 
+                    from our satisfied clients and see how we’ve helped businesses just like yours.</p>
+            <a href="rating.html">
+                </i> View Ratings
+            </a> 
         </div>
     </section>
+    <!-- Modal Structure -->
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeModalBtn">&times;</span>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>please fill out the form below and we will get back to you soon:</p>
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </section>
+    </div>
+</div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -164,7 +375,55 @@
     <!-- Scroll to Top Button -->
     <button class="up-button" id="upButton">&#x25B2; Up</button>
 
+    <!-- EmailJS Integration -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
+
+(function(){
+            emailjs.init("PLlXKBc-lreGCE27Q"); // replace with your actual user ID
+        })();
+        
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+
+            emailjs.send('service_mgyimiy', 'template_eirf7kw', templateParams)
+                .then(function(response) {
+                    alert('Message sent successfully!');
+                    document.getElementById('contact-form').reset(); // Reset the form after submission
+                }, function(error) {
+                    alert('Error sending message: ', error);
+                });
+        });
+        // Get the modal and buttons
+const modal = document.getElementById('contactModal');
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+
+// Open the modal when the "Get In" button is clicked
+openModalBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.style.display = 'block';
+});
+
+// Close the modal when the close button (×) is clicked
+closeModalBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// Close the modal if the user clicks outside of the modal content
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+
         // Scroll-to-top button functionality
         const upButton = document.getElementById('upButton');
         window.addEventListener('scroll', () => {
