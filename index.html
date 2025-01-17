@@ -54,8 +54,16 @@
           <a href="#features" class="btn-cta">Explore Features</a>
         </div>
         <div class="hero-image">
+          <!-- Optional: Keep the image for visual context -->
           <img src="pos-system.png" alt="Person using POS system" />
+        
+          <!-- Add an audio player -->
+          <audio controls>
+            <source src="your-audio-file.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
         </div>
+        
       </div>
     </section>
 
@@ -218,15 +226,20 @@ function navigate(direction) {
   document.querySelector('.next-page').disabled = currentSection === sections.length / 2;
 }
 
-
-    // Hamburger menu toggle
-    document.getElementById('hamburger').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', () => {
+  // Hamburger menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function () {
       this.classList.toggle('active');
-      document.getElementById('nav-links').classList.toggle('active');
+      navLinks.classList.toggle('active');
     });
+  }
 
-    // Scroll to top button
-    const upButton = document.getElementById('upButton');
+  // Scroll to top button
+  const upButton = document.getElementById('upButton');
+  if (upButton) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
         upButton.classList.add('visible');
@@ -241,6 +254,9 @@ function navigate(direction) {
         behavior: 'smooth',
       });
     });
+  }
+});
+
 
     // Handle rating form submission
     const ratingForm = document.getElementById('ratingForm');

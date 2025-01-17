@@ -116,6 +116,28 @@
             // Reset the form
             document.getElementById('ratingForm').reset();
         });
+           // Scroll to top button
+    const upButton = document.getElementById('upButton');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        upButton.classList.add('visible');
+      } else {
+        upButton.classList.remove('visible');
+      }
+    });
+
+    upButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    });
+
     </script>
+
+     <!-- WhatsApp Chat Icon -->
+<a href="https://wa.me/254790352338" target="_blank" class="whatsapp-chat">
+    <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
+  </a>
 </body>
 </html>

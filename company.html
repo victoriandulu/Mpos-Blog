@@ -6,8 +6,96 @@
   <title> Galaxies-Coders - MPOS Blog | Learn About Point of Sale Systems and Software</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="galaxies-logo (2).jpeg" type="image/jpeg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  
+  <style>
+    /* General Styles */
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+
+
+/* Sections */
+section#about, section#mission, section#vision {
+  padding: 50px 20px;
+  margin-top: 70px;
+  background: whitesmoke;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+#about h3, #mission h2, #vision h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+
+
+/* OUR SERVICES */
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    
+}
+
+.service-card {
+    background-color: #000033; /* Card background */
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: #FFA500; /* Highlighted orange for icons */
+    margin-bottom: 10px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links ul {
+    display: none;
+    flex-direction: column;
+    background: #2c3e50;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links ul.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .team-container {
+    flex-direction: column;
+  }
+}
+
+    </style>
 </head>
 <body>
 
@@ -52,49 +140,87 @@
         <p>To become a leading technology company that nurtures young talent and fosters creativity and innovation in the software development field.</p>
     </section>
 
-    <!-- Team Section -->
-    <section id="team">
-        <h2>Meet Our Team</h2>
-        <div class="team-container">
-        <div class="team-member">
-            <img src="ndulu (2).png" alt="Team Member 1">
-            <h3>Victoria Ndulu</h3>
-            <p>CEO & Founder</p>
-        </div>
-        <div class="team-member">
-            <img src="john.png" alt="Team Member 2">
-            <h3>John Kaiser</h3>
-            <p>CTO, Chief Technology Officer</p>
-        </div>
-        <div class="team-member">
-            <img src="mercy.jpeg" alt="Team Member 3">
-            <h3>Mercy Muoki</h3>
-            <p>Project Manager</p>
-        </div>
-        <div class="team-member">
-            <img src="kibet.png" alt="Team Member 3">
-            <h3>Emmanuel Kibet</h3>
-            <p>Data analyst</p>
-        </div>
-         <div class="team-member">
-            <img src="mercy.jpeg" alt="Team Member 3">
-            <h3>Mercy Muoki</h3>
-            <p>Project Manager</p>
-        </div>
-        <div class="team-member">
-            <img src="kibet.png" alt="Team Member 3">
-            <h3>Emmanuel Kibet</h3>
-            <p>Data analyst</p>
-        </div>
+
+    <section id="intro-services">
+        <h2>Why Choose Our Services</h2>
+        <p>
+            At Galaxies Coders, we understand that every business has unique challenges and goals. 
+            Our team of experts provides tailored solutions to help you overcome obstacles, optimize operations, 
+            and unlock new growth opportunities. With cutting-edge technology, industry expertise, 
+            and a commitment to excellence, we deliver services that empower businesses to thrive in a 
+            fast-paced digital world.
+        </p>
+    </section>
+    
+    <section id="services">
+        <div class="services-container">
+            <div class="service-card" onclick="openModal('webDev')">
+                <i class="fas fa-code service-icon"></i>
+                <h3>Web Development</h3>
+                <p>Creating cutting-edge websites for your business needs.</p>
+            </div>
+            <div class="service-card" onclick="openModal('mobileDev')">
+                <i class="fas fa-mobile-alt service-icon"></i>
+                <h3>Mobile Development</h3>
+                <p>Building high-quality mobile applications for iOS and Android.</p>
+            </div>
+            <div class="service-card" onclick="openModal('uiux')">
+                <i class="fas fa-paint-brush service-icon"></i>
+                <h3>UI/UX Design</h3>
+                <p>Designing user-friendly interfaces and seamless experiences.</p>
+            </div>
+            <div class="service-card" onclick="openModal('webApp')">
+                <i class="fas fa-laptop service-icon"></i>
+                <h3>Web Applications</h3>
+                <p>Creating robust and scalable web applications.</p>
+            </div>
+            <div class="service-card" onclick="openModal('dataAnalysis')">
+                <i class="fas fa-chart-line service-icon"></i>
+                <h3>Data Analysis</h3>
+                <p>Providing actionable insights from your data.</p>
+            </div>
+            <div class="service-card" onclick="openModal('cloudComputing')">
+                <i class="fas fa-cloud service-icon"></i>
+                <h3>Cloud Computing</h3>
+                <p>Empowering your business with scalable cloud solutions.</p>
+            </div>
+            <div class="service-card" onclick="openModal('aiSolutions')">
+                <i class="fas fa-robot service-icon"></i>
+                <h3>AI Solutions</h3>
+                <p>Integrating AI to enhance business processes.</p>
+            </div>
         </div>
     </section>
-
     <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 Galaxies Coders. All Rights Reserved.</p>
+    
+    <footer class="footer">
+        <p>© 2025 POS Blog. All rights reserved.</p>
     </footer>
+    <button class="up-button" id="upButton">
+        &#x25B2; Up
+      </button>
 
     <script>
+        // Scroll to top button
+const upButton = document.getElementById('upButton');
+
+// Show the button when scrolling down
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    upButton.classList.add('visible');
+  } else {
+    upButton.classList.remove('visible');
+  }
+});
+
+// Scroll to the top smoothly when clicking the button
+upButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+});
+
          
         // Toggle the visibility of the dropdown content
 function toggleDropdown(event) {
@@ -142,5 +268,11 @@ window.addEventListener('resize', function() {
     };
     
     </script>
+
+     <!-- WhatsApp Chat Icon -->
+<a href="https://wa.me/254790352338" target="_blank" class="whatsapp-chat">
+    <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
+  </a>
+
 </body>
 </html>
