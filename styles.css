@@ -832,151 +832,225 @@ body, html {
 }
 
    
-
-/* Demo Section */
-.demo-section {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-  margin-top: 40px;
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: 8px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background-color: transparent; /* Make the button background transparent */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50px; /* Rounded corners */
+  border: 2px solid #000033; /* Dark green border */
+  font-weight: bold;
 }
 
-.demo-section .container {
+
+
+.whatsapp-button img {
+  width: 22px; /* Adjust the size as needed */
+  height: 22px; /* Ensure the image is square */
+  background-color: #25D366; /* WhatsApp green */
+  border-radius: 50%; /* Make the image circular */
+  padding: 5px; /* Adjust padding to control the icon size */
+  margin-right: 10px; /* Space between the icon and text */
+}
+
+
+.whatsapp-button:hover {
+  color: #006400; /* Darker green on hover */
+}
+.btn-consultation {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background-color: transparent; /* Make the button background transparent */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50px; /* Rounded corners */
+  border: 2px solid #000033; /* Dark green border */
+  font-weight: bold;
+}
+
+
+
+/* Demo Container */
+.demo-container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Section Title and Description */
-.section-title {
-  font-size: 2.5rem;
-  color: #333;
+.demo-title {
+  font-size: 24px;
+  font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
-}
-
-.section-description {
-  font-size: 1.1rem;
-  color: #555;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-/* Screenshot Section */
-.screenshots-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 40px;
-}
-
-.screenshot {
-  width: 30%;
-  text-align: center;
-}
-
-.screenshot img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-.screenshot-caption {
-  font-size: 1rem;
   color: #333;
-  margin-top: 10px;
 }
 
-/* Step-by-Step Process */
-.steps-container {
-  background-color: #fff;
+/* Carousel */
+.carousel {
+  position: relative;
+  background-color: #f3f4f6;
+  border-radius: 8px;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.steps-title {
-  font-size: 2rem;
+/* Carousel Pages */
+.carousel-page {
+  display: none;
+}
+
+.carousel-page.active {
+  display: block;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
   color: #333;
+}
+
+/* Screenshots Row */
+.screenshots-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.screenshot-card {
+  background-color: white;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  max-width: calc(33.333% - 14px);
+}
+
+.screenshot-card img {
+  width: 100%;
+  height: 240px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.screenshot-title {
   text-align: center;
-  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #333;
 }
 
-.steps-list {
-  list-style: decimal;
-  padding-left: 20px;
-  color: #555;
+/* Steps Container */
+.steps-container {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.steps-list li {
-  margin-bottom: 20px;
-}
-
-.steps-list strong {
+.steps-heading {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 18px;
   color: #000033;
-  font-size: 1.2rem;
 }
 
-/* Pagination */
-.pagination {
-  text-align: center;
-  margin-top: 40px;
+.step-item {
+  margin-bottom: 12px;
 }
 
-.pagination button {
-  padding: 12px 20px;
+.step-title {
+  font-weight: 500;
+  font-size: 16px;
+  color: #000033;
+}
+
+.step-description {
+  font-size: 14px;
+  margin-left: 20px;
+  margin-top: 4px;
+  color: #000033;
+}
+
+/* Navigation Controls */
+.navigation-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+}
+
+.nav-button {
   background-color: #000033;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-size: 14px;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: background-color 0.3s ease;
-  margin: 0 10px;
-}
-
-.pagination button:hover {
-  background-color: #333;
-}
-
-/* Media Queries for Responsive Design */
-@media (max-width: 768px) {
-  .screenshot {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .steps-list {
-    padding-left: 15px;
-  }
-}
-.whatsapp-chat{
-  position: fixed;
-  bottom: 200px; /* Adjusts vertical position */
-  right: 20px; /* Adjusts horizontal position */
-  z-index: 1000; /* Ensures it appears above other content */
   display: flex;
   align-items: center;
-  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.nav-button:hover {
   background-color: #000033;
-  width: 60px; /* Icon container size */
-  height: 60px; /* Icon container size */
-  border-radius: 50%; /* Makes the icon circular */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.whatsapp-chat img {
-  width: 40px; /* Icon image size */
-  height: 40px;
+.nav-arrow {
+  font-size: 20px;
 }
 
-.whatsapp-chat:hover {
-  transform: scale(1.1); /* Slightly enlarges the icon on hover */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+.prev-button .nav-arrow {
+  margin-right: 5px;
 }
-/* Company css */
+
+.next-button .nav-arrow {
+  margin-left: 5px;
+}
+
+.page-indicators {
+  display: flex;
+  gap: 5px;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #d1d5db;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color: #000033;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .screenshots-row {
+      flex-direction: column;
+  }
+  
+  .screenshot-card {
+      max-width: 100%;
+      margin-bottom: 15px;
+  }
+  
+  .carousel {
+      height: 600px;
+  }
+}
+
+
 

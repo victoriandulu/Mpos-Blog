@@ -39,7 +39,9 @@
     <nav class="nav">
       <div class="nav-links" id="nav-links">
         <ul>
-          <li><a href="#features">Features</a></li>
+          <li><a href="#features">Home</a></li>
+        
+          <li><a href="features.html">features</a></li>
           <li><a href="company.html">Company</a></li>
           <li><a href="rating.html">Ratings</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -157,80 +159,209 @@ Allows you to showcase and sell products online, track and manage product variat
       
     </section>
 
-    <section class="demo-section">
-  <div class="container">
-    <!-- Section Title -->
-    <h2 class="section-title">System Demo and Usage Guide</h2>
-    <p class="section-description">
-      Explore the system's features with example screenshots and follow the steps below to understand how to use the system effectively.
-    </p>
-    
-    <!-- Dynamic Content (Will Change on Navigation) -->
-    <div id="content-container">
-      <!-- Example Screenshots for Section 1 -->
-      <div class="screenshots-container" data-section="1">
-        <div class="screenshot">
-          <img src="gold.png" alt="Screenshot 1" />
-          <p class="screenshot-caption">Dashboard Overview</p>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>System Demo Carousel</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="demo-container">
+            <h2 class="demo-title">System Demonstration</h2>
+            
+            <!-- Carousel Container -->
+            <div class="carousel">
+                <!-- Page 1 -->
+                <div class="carousel-page active" id="page1">
+                    <h3 class="page-title">How to Use the System</h3>
+                    
+                    <!-- Screenshots Row -->
+                    <div class="screenshots-row">
+                        <div class="screenshot-card">
+                            <img src="hardware.jpg" alt="Login Screen Screenshot">
+                            <h4 class="screenshot-title">Login Screen</h4>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="grocery.jpg" alt="Dashboard Overview Screenshot">
+                            <h4 class="screenshot-title">Dashboard Overview</h4>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="furniture.jpg" alt="User Profile Settings Screenshot">
+                            <h4 class="screenshot-title">User Profile Settings</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Steps Section -->
+                    <div class="steps-container">
+                        <h4 class="steps-heading">How to Use the System</h4>
+                        <div class="steps-list">
+                            <div class="step-item">
+                                <p class="step-title">1. <strong>Step 1: Log In</strong></p>
+                                <p class="step-description">Visit the login page and enter your credentials.</p>
+                            </div>
+                            <div class="step-item">
+                                <p class="step-title">2. <strong>Step 2: Access Dashboard</strong></p>
+                                <p class="step-description">View system features and navigate easily.</p>
+                            </div>
+                            <div class="step-item">
+                                <p class="step-title">3. <strong>Step 3: Update Profile</strong></p>
+                                <p class="step-description">Complete your profile with relevant information.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Page 2 -->
+                <div class="carousel-page" id="page2">
+                    <h3 class="page-title">Reporting System</h3>
+                    
+                    <!-- Screenshots Row -->
+                    <div class="screenshots-row">
+                        <div class="screenshot-card">
+                            <img src="hotels.jpg" alt="Report Generator Screenshot">
+                            <h4 class="screenshot-title">Report Generator</h4>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="wines.jpg" alt="Data Visualization Screenshot">
+                            <h4 class="screenshot-title">Data Visualization</h4>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="Supermarkets.jpeg" alt="Export Options Screenshot">
+                            <h4 class="screenshot-title">Export Options</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Steps Section -->
+                    <div class="steps-container">
+                        <h4 class="steps-heading">How to Use the System</h4>
+                        <div class="steps-list">
+                            <div class="step-item">
+                                <p class="step-title">1. <strong>Step 1: Select Report Type</strong></p>
+                                <p class="step-description">Choose from various report templates based on your needs.</p>
+                            </div>
+                            <div class="step-item">
+                                <p class="step-title">2. <strong>Step 2: Set Parameters</strong></p>
+                                <p class="step-description">Define the data range and filters for your report.</p>
+                            </div>
+                            <div class="step-item">
+                                <p class="step-title">3. <strong>Step 3: Generate and Export</strong></p>
+                                <p class="step-description">View your report and download in your preferred format.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Page 3 -->
+                <div class="carousel-page" id="page3">
+                    <h3 class="page-title">Pest Management Module</h3>
+                    
+                    <!-- Screenshots Row -->
+                    <div class="screenshots-row">
+                        <div class="screenshot-card">
+                            <img src="https://via.placeholder.com/400x240" alt="Pest Identification Screenshot">
+                            <h4 class="screenshot-title">Pest Identification</h4>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="https://via.placeholder.com/400x240" alt="Outbreak Mapping Screenshot">
+                            <h4 class="screenshot-title">Outbreak Mapping</h4>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="https://via.placeholder.com/400x240" alt="Treatment Options Screenshot">
+                            <h4 class="screenshot-title">Treatment Options</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Steps Section -->
+                    <div class="steps-container">
+                        <h4 class="steps-heading">How to Use the System</h4>
+                        <div class="steps-list">
+                            <div class="step-item">
+                                <p class="step-title">1. <strong>Step 1: Report Pest Sighting</strong></p>
+                                <p class="step-description">Upload images and location information of suspected pests.</p>
+                            </div>
+                            <div class="step-item">
+                                <p class="step-title">2. <strong>Step 2: View Analysis</strong></p>
+                                <p class="step-description">Receive pest identification and risk assessment.</p>
+                            </div>
+                            <div class="step-item">
+                                <p class="step-title">3. <strong>Step 3: Implement Solutions</strong></p>
+                                <p class="step-description">Follow recommended treatment procedures.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Page 4 -->
+                <div class="carousel-page" id="page4">
+                    <h3 class="page-title">Community Features</h3>
+                    
+                    <!-- Screenshots Row -->
+                    <div class="screenshots-row">
+                        <div class="screenshot-card">
+                            <img src="https://via.placeholder.com/400x240" alt="Discussion Forums Screenshot">
+                            <h4 class="screenshot-title">Discussion Forums</h4>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="https://via.placeholder.com/400x240" alt="Event Calendar Screenshot">
+                            <h4 class="screenshot-title">Event Calendar</h4>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="https://via.placeholder.com/400x240" alt="Resource Library Screenshot">
+                            <h4 class="screenshot-title">Resource Library</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Steps Section -->
+                    <div class="steps-container">
+                        <h4 class="steps-heading">How to Use the System</h4>
+                        <div class="steps-list">
+                            <div class="step-item">
+                                <p class="step-title">1. <strong>Step 1: Join Discussions</strong></p>
+                                <p class="step-description">Participate in topic-specific forums with other farmers.</p>
+                            </div>
+                            <div class="step-item">
+                                <p class="step-title">2. <strong>Step 2: Register for Events</strong></p>
+                                <p class="step-description">Find and sign up for training and community events.</p>
+                            </div>
+                            <div class="step-item">
+                                <p class="step-title">3. <strong>Step 3: Access Resources</strong></p>
+                                <p class="step-description">Download guides and educational materials.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Controls -->
+                <div class="navigation-controls">
+                    <button class="nav-button prev-button" onclick="goToPrevPage()">
+                        <span class="nav-arrow">&#8249;</span> Previous
+                    </button>
+                    
+                    <div class="page-indicators">
+                        <span class="indicator active" data-page="1"></span>
+                        <span class="indicator" data-page="2"></span>
+                        <span class="indicator" data-page="3"></span>
+                        <span class="indicator" data-page="4"></span>
+                    </div>
+                    
+                    <button class="nav-button next-button" onclick="goToNextPage()">
+                        Next <span class="nav-arrow">&#8250;</span>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="screenshot">
-          <img src="grocery.jpg" alt="Screenshot 2" />
-          <p class="screenshot-caption">User Profile Settings</p>
-        </div>
-        <div class="screenshot">
-          <img src="bookshop.jpg" alt="Screenshot 3" />
-          <p class="screenshot-caption">Contribution Page</p>
-        </div>
-      </div>
-
-      <!-- Step-by-Step Process for Section 1 -->
-      <div class="steps-container" data-section="1">
-        <h3 class="steps-title">How to Use the System</h3>
-        <ol class="steps-list">
-          <li><strong>Step 1: Log In</strong><p>Visit the login page and enter your credentials.</p></li>
-          <li><strong>Step 2: Access Dashboard</strong><p>View system features and navigate easily.</p></li>
-        </ol>
-      </div>
-    </div>
-
-    <!-- Example for Section 2 -->
-<div class="screenshots-container" data-section="2" style="display: none;">
-  <div class="screenshot">
-    <img src="bookshop.jpg" alt="Screenshot 1" />
-    <p class="screenshot-caption">New Feature Overview</p>
-  </div>
-</div>
-<div class="screenshots-container" data-section="2" style="display: none;">
-  <div class="screenshot">
-    <img src="bookshop.jpg" alt="Screenshot 1" />
-    <p class="screenshot-caption">New Feature Overview</p>
-  </div>
-</div>
-
-<div class="steps-container" data-section="2" style="display: none;">
-  <h3 class="steps-title">Next Steps</h3>
-  <ol class="steps-list">
-    <li><strong>Step 3: Feature X</strong><p>Description of feature X.</p></li>
-    <li><strong>Step 4: Feature Y</strong><p>Description of feature Y.</p></li>
-  </ol>
-</div>
-
-
-    <!-- Pagination Buttons -->
-    <div class="pagination">
-      <button class="prev-page" onclick="navigate(-1)">Previous</button>
-      <button class="next-page" onclick="navigate(1)">Next</button>
-    </div>
-  </div>
-</section>
-
-
   
    
  
 
   </main>
-
+ <!-- WhatsApp Chat Icon -->
+ <a href="https://wa.me/254790352338" target="_blank" class="whatsapp-chat">
+  <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
+</a>
   <footer class="footer">
     <p>© 2025 POS Blog. All rights reserved.</p>
   </footer>
@@ -241,34 +372,57 @@ Allows you to showcase and sell products online, track and manage product variat
 
   
    <script>
-let currentSection = 1; // Start with the first section
+// Current page tracking
+let currentPage = 1;
+const totalPages = 4;
 
-function navigate(direction) {
-  // Get all content containers
-  const sections = document.querySelectorAll('[data-section]');
-  
-  // Hide current section
-  sections.forEach((section) => {
-    if (parseInt(section.getAttribute('data-section')) === currentSection) {
-      section.style.display = 'none';
-    }
-  });
-
-  // Update current section based on direction
-  currentSection += direction;
-
-  // Show the new section
-  sections.forEach((section) => {
-    if (parseInt(section.getAttribute('data-section')) === currentSection) {
-      section.style.display = 'block';
-    }
-  });
-
-  // Disable buttons if at boundaries
-  document.querySelector('.prev-page').disabled = currentSection === 1;
-  document.querySelector('.next-page').disabled = currentSection === sections.length / 2;
+// Function to navigate to a specific page
+function goToPage(pageNumber) {
+    // Hide all pages
+    document.querySelectorAll('.carousel-page').forEach(page => {
+        page.classList.remove('active');
+    });
+    
+    // Show selected page
+    document.getElementById('page' + pageNumber).classList.add('active');
+    
+    // Update indicators
+    document.querySelectorAll('.indicator').forEach(indicator => {
+        indicator.classList.remove('active');
+    });
+    document.querySelector(`.indicator[data-page="${pageNumber}"]`).classList.add('active');
+    
+    // Update current page tracker
+    currentPage = pageNumber;
 }
 
+// Function to go to next page
+function goToNextPage() {
+    let nextPage = currentPage + 1;
+    if (nextPage > totalPages) {
+        nextPage = 1; // Loop back to first page
+    }
+    goToPage(nextPage);
+}
+
+// Function to go to previous page
+function goToPrevPage() {
+    let prevPage = currentPage - 1;
+    if (prevPage < 1) {
+        prevPage = totalPages; // Loop to last page
+    }
+    goToPage(prevPage);
+}
+
+// Add click events to indicators
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.indicator').forEach(indicator => {
+        indicator.addEventListener('click', function() {
+            const pageNumber = parseInt(this.getAttribute('data-page'));
+            goToPage(pageNumber);
+        });
+    });
+});
 document.addEventListener('DOMContentLoaded', () => {
   // Hamburger menu toggle
   const hamburger = document.getElementById('hamburger');
@@ -325,10 +479,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   </script>
 
-  <!-- WhatsApp Chat Icon -->
-<a href="https://wa.me/254790352338" target="_blank" class="whatsapp-chat">
-  <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
-</a>
+ 
 
 </body>
 </html>

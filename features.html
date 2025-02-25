@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features - Galaxies Coders - MPOS</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ===============================
+       CSS Reset & Base Styles
+       =============================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #000033;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* ===============================
+       Header & Navigation
+       =============================== */
+    header.header {
+      background: #fff;
+      padding: 20px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    header.header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #000033;
+    }
+    .nav-links ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    .nav-links ul li {
+      margin-left: 20px;
+    }
+    .nav-links ul li a {
+      text-decoration: none;
+      color: #000033;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-links ul li a:hover,
+    .nav-links ul li a.active {
+      color: #000033;
+    }
+    
+    /* ===============================
+       CSS-Only Hamburger Menu
+       =============================== */
+    .nav-toggle {
+      display: none;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #333;
+      margin-bottom: 5px;
+      border-radius: 2px;
+    }
+    
+    /* ===============================
+       Hero Section
+       =============================== */
+    .hero {
+      background: url('hero-image.jpg') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 100px 0;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2em;
+    }
+    
+    /* ===============================
+       Features Split Section
+       =============================== */
+    .features-split {
+      padding: 60px 0;
+      background: #f9f9f9;
+    }
+    .features-split-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .features-content {
+      flex: 1;
+      padding-right: 20px;
+    }
+    .features-content h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #000033;
+    }
+    .features-content p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      color: #000033;
+    }
+    .features-content ul {
+      list-style: disc inside;
+      font-size: 1em;
+      color:#000033;
+    }
+    .features-image {
+      flex: 1;
+      text-align: right;
+    }
+    .features-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    /* Alternate the order of content and image for even sections */
+    .features-split:nth-of-type(even) .features-split-container {
+      flex-direction: row-reverse;
+    }
+    
+    /* ===============================
+       Call To Action Section
+       =============================== */
+    .cta {
+      padding: 60px 0;
+      text-align: center;
+      background: #000033;
+      color: #fff;
+    }
+    .cta h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .cta .btn {
+      background: #fff;
+      color: #000033;
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 1em;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .cta .btn:hover {
+      background: #f0f0f0;
+    }
+    
+    /* ===============================
+       Footer
+       =============================== */
+    footer.footer {
+      background: #000033;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer.footer p {
+      font-size: 0.9em;
+    }
+    
+    /* ===============================
+       Responsive Styles
+       =============================== */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      .nav-links ul {
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        background: #fff;
+        border: 1px solid #ddd;
+        display: none;
+      }
+      .nav-links ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+      .nav-toggle:checked + .hamburger + .nav-links ul {
+        display: flex;
+      }
+      .features-split-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .features-content {
+        padding-right: 0;
+        margin-bottom: 20px;
+      }
+      .features-image {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">Galaxies Coders - MPOS</div>
+      <!-- CSS-only toggle for mobile menu -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <nav class="nav-links" id="nav-links">
+        <ul>
+          <li><a href="index.html#features">Home</a></li>
+          <li><a href="features.html" class="active">Features</a></li>
+          <li><a href="company.html">Company</a></li>
+          <li><a href="#ratings">Ratings</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li>
+            <a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
+              <img src="whatsapp.png" alt="Chat with Us on WhatsApp" style="max-width:20px; vertical-align: middle;"> Chat with Us
+            </a>
+          </li>
+          <li><a href="#contact" class="btn-consultation">Book A Free Demo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+ 
+  
+  <!-- Features Split Section 1 (Content Left, Image Right) -->
+  <section class="features-split">
+    <div class="container">
+      <div class="features-split-container">
+        <div class="features-content">
+          <h2>Seamless Integration</h2>
+          <p>
+            Our POS system is designed to simplify your business operations. Enjoy an intuitive interface, robust reporting, and secure transactions—all integrated seamlessly.
+          </p>
+          <ul>
+            <li>Real-time inventory tracking</li>
+            <li>Easy-to-use interface</li>
+            <li>Secure transactions</li>
+            <li>Comprehensive reporting</li>
+          </ul>
+        </div>
+        <div class="features-image">
+          <img src="furniture.jpg" alt="Seamless Integration" />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Split Section 2 (Image Left, Content Right) -->
+  <section class="features-split">
+    <div class="container">
+      <div class="features-split-container">
+        <div class="features-content">
+          <h2>Real-time Updates</h2>
+          <p>
+            Stay ahead with real-time updates on sales, inventory, and customer data. Our system provides live analytics to help you make informed decisions instantly.
+          </p>
+          <ul>
+            <li>Live analytics dashboard</li>
+            <li>Instant notifications</li>
+            <li>Performance insights</li>
+            <li>Data-driven decisions</li>
+          </ul>
+        </div>
+        <div class="features-image">
+          <img src="grocery.jpg" alt="Real-time Updates" />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Split Section 3 (Content Left, Image Right) -->
+  <section class="features-split">
+    <div class="container">
+      <div class="features-split-container">
+        <div class="features-content">
+          <h2>Comprehensive Support</h2>
+          <p>
+            Our dedicated support team is available 24/7 to assist you with any queries or technical issues, ensuring your business runs smoothly.
+          </p>
+          <ul>
+            <li>24/7 customer support</li>
+            <li>Expert technical assistance</li>
+            <li>Regular system updates</li>
+            <li>User-friendly documentation</li>
+          </ul>
+        </div>
+        <div class="features-image">
+          <img src="hardware.jpg" alt="Comprehensive Support" />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call To Action Section -->
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to experience our POS system?</h2>
+      <a href="contact.html" class="btn">Get Started</a>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Galaxies Coders - MPOS. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- WhatsApp Chat Icon -->
+  <a href="https://wa.me/254790352338" target="_blank" class="whatsapp-chat" style="position: fixed; bottom: 20px; right: 20px;">
+    <img src="whatsapp.png" alt="Chat with Us on WhatsApp" style="max-width:50px;">
+  </a>
+</body>
+</html>
