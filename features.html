@@ -34,58 +34,183 @@
       padding: 20px 0;
       border-bottom: 1px solid #ddd;
     }
-    header.header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-    }
-    .logo {
-      font-size: 1.8em;
-      font-weight: bold;
-      color: #000033;
-    }
-    .nav-links ul {
-      list-style: none;
-      display: flex;
-      align-items: center;
-    }
-    .nav-links ul li {
-      margin-left: 20px;
-    }
-    .nav-links ul li a {
-      text-decoration: none;
-      color: #000033;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    .nav-links ul li a:hover,
-    .nav-links ul li a.active {
-      color: #000033;
-    }
-    
-    /* ===============================
-       CSS-Only Hamburger Menu
-       =============================== */
-    .nav-toggle {
-      display: none;
-    }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-    .hamburger span {
-      height: 3px;
-      width: 25px;
-      background: #333;
-      margin-bottom: 5px;
-      border-radius: 2px;
-    }
-    
-    /* ===============================
-       Hero Section
-       =============================== */
+  /* Header styles - Keep your original desktop header */
+.header {
+  background-color: white;
+  color: #000033;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Navigation styles - Keep your original desktop navigation */
+.nav-links ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links ul li a {
+  color: #000033;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-consultation {
+  background-color: white;
+  color:  #000033!important;
+  padding: 8px 15px !important;
+  border-radius: 5px;
+}
+
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: white;
+  color: #000033 !important;
+  padding: 8px 15px !important;
+  border-radius: 5px;
+}
+
+.whatsapp-button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Hamburger menu - hidden on desktop */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 4px;
+  background-color: #000033;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Mobile sidebar - hidden by default */
+.mobile-sidebar {
+  display: none;
+}
+
+/* Overlay for mobile - hidden by default */
+.overlay {
+  display: none;
+}
+
+/* Mobile styles - only apply these changes on small screens */
+@media (max-width: 600px) {
+  /* Hide desktop navigation on mobile */
+  .nav-links {
+    display: none;
+  }
+  
+  /* Show hamburger menu on mobile */
+  .hamburger {
+    display: block;
+  }
+  
+  /* Mobile sidebar - sliding in from left */
+  .mobile-sidebar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -60%; /* Start off-screen */
+    width: 60%; /* 40% width as requested */
+    height: 100%; /* Full height */
+    background-color: white;
+    z-index: 1001;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    overflow-y: auto;
+  }
+  
+  .mobile-sidebar.active {
+    left: 0; /* Slide in from left */
+  }
+  
+  /* Logo at top of sidebar */
+  .mobile-sidebar .sidebar-logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #000033;
+    padding: 20px 15px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 15px;
+  }
+  
+  /* Mobile navigation links */
+  .mobile-sidebar ul {
+    list-style: none;
+    padding: 0 15px;
+  }
+  
+  .mobile-sidebar ul li {
+    margin-bottom: 15px;
+  }
+  
+  .mobile-sidebar ul li a {
+    color: #000033;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 8px 5px;
+    font-size: 1.1rem;
+  }
+  
+  /* Overlay when sidebar is active */
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+  }
+  
+  .overlay.active {
+    display: block;
+  }
+  
+  /* Hamburger animation */
+  .hamburger.active div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .hamburger.active div:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
     .hero {
       background: url('hero-image.jpg') center/cover no-repeat;
       color: #fff;
@@ -172,9 +297,7 @@
       background: #f0f0f0;
     }
     
-    /* ===============================
-       Footer
-       =============================== */
+   
     footer.footer {
       background: #000033;
       color: #fff;
@@ -185,74 +308,71 @@
       font-size: 0.9em;
     }
     
-    /* ===============================
-       Responsive Styles
-       =============================== */
+    
     @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-      }
-      .nav-links ul {
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 200px;
-        background: #fff;
-        border: 1px solid #ddd;
-        display: none;
-      }
-      .nav-links ul li {
-        margin: 10px 0;
-        text-align: center;
-      }
-      .nav-toggle:checked + .hamburger + .nav-links ul {
-        display: flex;
-      }
-      .features-split-container {
-        flex-direction: column;
-        text-align: center;
-      }
-      .features-content {
-        padding-right: 0;
-        margin-bottom: 20px;
-      }
-      .features-image {
-        text-align: center;
-      }
-    }
+  /* Force all feature sections to use column layout */
+  .features-split-container {
+    margin-top: 100px;
+    flex-direction: column !important;
+    text-align: center;
+  }
+  
+  /* Place the image on top by forcing its order */
+  .features-image {
+    order: -1;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .features-content {
+    order: 1;
+    padding-right: 0;
+  }
+}
   </style>
 </head>
 <body>
   <!-- Header -->
   <header class="header">
-    <div class="container">
-      <div class="logo">Galaxies Coders - MPOS</div>
-      <!-- CSS-only toggle for mobile menu -->
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-      <nav class="nav-links" id="nav-links">
-        <ul>
-          <li><a href="index.html#features">Home</a></li>
-          <li><a href="features.html" class="active">Features</a></li>
-          <li><a href="company.html">Company</a></li>
-          <li><a href="#ratings">Ratings</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li>
-            <a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
-              <img src="whatsapp.png" alt="Chat with Us on WhatsApp" style="max-width:20px; vertical-align: middle;"> Chat with Us
-            </a>
-          </li>
-          <li><a href="#contact" class="btn-consultation">Book A Free Demo</a></li>
-        </ul>
-      </nav>
-    </div>
+    <div class="logo">Galaxies Coders - MPOS</div>
+    <button class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </button>
+    <nav class="nav-links" id="nav-links">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="company.html">Company</a></li>
+        <li><a href="rating.html">Ratings</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
+          <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
+          Chat with Us
+        </a></li>
+        <li><a href="contact.html" class="btn-consultation">Book A Free Demo</a></li>
+      </ul>
+    </nav>
   </header>
-  
+   <!-- Mobile Sidebar (only shown on small screens) -->
+   <div class="mobile-sidebar" id="mobile-sidebar">
+    <div class="sidebar-logo">Galaxies Coders - MPOS</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="company.html">Company</a></li>
+      <li><a href="rating.html">Ratings</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
+        <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
+        Chat with Us
+      </a></li>
+      <li><a href="#contact" class="btn-consultation">Book A Free Demo</a></li>
+    </ul>
+  </div>
+   <!-- Overlay for mobile sidebar -->
+   <div class="overlay" id="overlay"></div>
  
   
   <!-- Features Split Section 1 (Content Left, Image Right) -->
@@ -338,9 +458,42 @@
       <p>&copy; 2025 Galaxies Coders - MPOS. All rights reserved.</p>
     </div>
   </footer>
-  
+
+  <script>
+  // Hamburger menu toggle
+  // Mobile sidebar toggle - only works on small screens
+  const hamburger = document.getElementById('hamburger');
+      const mobileSidebar = document.getElementById('mobile-sidebar');
+      const overlay = document.getElementById('overlay');
+      
+      hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        mobileSidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = mobileSidebar.classList.contains('active') ? 'hidden' : '';
+      });
+      
+      // Close sidebar when clicking overlay
+      overlay.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        mobileSidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      // Close sidebar when clicking links
+      const sidebarLinks = document.querySelectorAll('.mobile-sidebar ul li a');
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          mobileSidebar.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+  </script>
   <!-- WhatsApp Chat Icon -->
-  <a href="https://wa.me/254790352338" target="_blank" class="whatsapp-chat" style="position: fixed; bottom: 20px; right: 20px;">
+  <a href="https://wa.me/254790352338" target="_blank" class="whatsapp-chat" style="position: fixed; bottom: 100px; left: 80%; transform: translateX(-80%);">
     <img src="whatsapp.png" alt="Chat with Us on WhatsApp" style="max-width:50px;">
   </a>
 </body>

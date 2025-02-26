@@ -28,6 +28,7 @@
     </script>
   </head>
 <body>
+  
 
   <header class="header">
     <div class="logo">Galaxies Coders - MPOS</div>
@@ -36,24 +37,40 @@
       <div></div>
       <div></div>
     </button>
-    <nav class="nav">
-      <div class="nav-links" id="nav-links">
-        <ul>
-          <li><a href="#features">Home</a></li>
-        
-          <li><a href="features.html">features</a></li>
-          <li><a href="company.html">Company</a></li>
-          <li><a href="rating.html">Ratings</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
-            <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
-            Chat with Us
-          </a></li>
-          <li><a href="#contact" class="btn-consultation">Book A Free Demo</a></li>
-        </ul>
-      </div>
+    <nav class="nav-links" id="nav-links">
+      <ul>
+        <li><a href="#features">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="company.html">Company</a></li>
+        <li><a href="rating.html">Ratings</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
+          <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
+          Chat with Us
+        </a></li>
+        <li><a href="contact.html" class="btn-consultation">Book A Free Demo</a></li>
+      </ul>
     </nav>
   </header>
+   <!-- Mobile Sidebar (only shown on small screens) -->
+   <div class="mobile-sidebar" id="mobile-sidebar">
+    <div class="sidebar-logo">Galaxies Coders - MPOS</div>
+    <ul>
+      <li><a href="#features">Home</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="company.html">Company</a></li>
+      <li><a href="rating.html">Ratings</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
+        <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
+        Chat with Us
+      </a></li>
+      <li><a href="#contact" class="btn-consultation">Book A Free Demo</a></li>
+    </ul>
+  </div>
+
+  <!-- Overlay for mobile sidebar -->
+  <div class="overlay" id="overlay"></div>
 
   <main class="main-content">
     <!-- Hero Section -->
@@ -160,15 +177,7 @@ Allows you to showcase and sell products online, track and manage product variat
     </section>
 
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>System Demo Carousel</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
+    
         <div class="demo-container">
             <h2 class="demo-title">System Demonstration</h2>
             
@@ -181,11 +190,11 @@ Allows you to showcase and sell products online, track and manage product variat
                     <!-- Screenshots Row -->
                     <div class="screenshots-row">
                         <div class="screenshot-card">
-                            <img src="hardware.jpg" alt="Login Screen Screenshot">
+                            <img src="signup.jpeg" alt="Login Screen Screenshot">
                             <h4 class="screenshot-title">Login Screen</h4>
                         </div>
                         <div class="screenshot-card">
-                            <img src="grocery.jpg" alt="Dashboard Overview Screenshot">
+                            <img src="home.jpeg" alt="Dashboard Overview Screenshot">
                             <h4 class="screenshot-title">Dashboard Overview</h4>
                         </div>
                         <div class="screenshot-card">
@@ -221,15 +230,15 @@ Allows you to showcase and sell products online, track and manage product variat
                     <!-- Screenshots Row -->
                     <div class="screenshots-row">
                         <div class="screenshot-card">
-                            <img src="hotels.jpg" alt="Report Generator Screenshot">
+                            <img src="ndush.jpeg" alt="Report Generator Screenshot">
                             <h4 class="screenshot-title">Report Generator</h4>
                         </div>
                         <div class="screenshot-card">
-                            <img src="wines.jpg" alt="Data Visualization Screenshot">
+                            <img src="first.jpeg" alt="Data Visualization Screenshot">
                             <h4 class="screenshot-title">Data Visualization</h4>
                         </div>
                         <div class="screenshot-card">
-                            <img src="Supermarkets.jpeg" alt="Export Options Screenshot">
+                            <img src="second.jpeg" alt="Export Options Screenshot">
                             <h4 class="screenshot-title">Export Options</h4>
                         </div>
                     </div>
@@ -358,10 +367,9 @@ Allows you to showcase and sell products online, track and manage product variat
  
 
   </main>
- <!-- WhatsApp Chat Icon -->
- <a href="https://wa.me/254790352338" target="_blank" class="whatsapp-chat">
-  <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
-</a>
+  <a href="https://wa.me/254790352338" target="_blank" class="whatsapp-chat" style="position: fixed; background-color: #000033;bottom: 100px; left: 80%; transform: translateX(-80%);">
+    <img src="whatsapp.png" alt="Chat with Us on WhatsApp" style="max-width:50px;">
+  </a>
   <footer class="footer">
     <p>© 2025 POS Blog. All rights reserved.</p>
   </footer>
@@ -425,15 +433,36 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 document.addEventListener('DOMContentLoaded', () => {
   // Hamburger menu toggle
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', function () {
+// Mobile sidebar toggle - only works on small screens
+const hamburger = document.getElementById('hamburger');
+    const mobileSidebar = document.getElementById('mobile-sidebar');
+    const overlay = document.getElementById('overlay');
+    
+    hamburger.addEventListener('click', function() {
       this.classList.toggle('active');
-      navLinks.classList.toggle('active');
+      mobileSidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = mobileSidebar.classList.contains('active') ? 'hidden' : '';
     });
-  }
-
+    
+    // Close sidebar when clicking overlay
+    overlay.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      mobileSidebar.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    // Close sidebar when clicking links
+    const sidebarLinks = document.querySelectorAll('.mobile-sidebar ul li a');
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileSidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
   // Scroll to top button
   const upButton = document.getElementById('upButton');
   if (upButton) {
@@ -479,7 +508,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   </script>
 
- 
 
 </body>
 </html>

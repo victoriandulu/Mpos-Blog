@@ -66,30 +66,187 @@ section#about, section#mission, section#vision {
     color: #FFA500; /* Highlighted orange for icons */
     margin-bottom: 10px;
 }
+/* Header styles - Keep your original desktop header */
+.header {
+  background-color: white;
+  color: #000033;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Navigation styles - Keep your original desktop navigation */
+.nav-links ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links ul li a {
+  color: #000033;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-consultation {
+  background-color: white;
+  color:  #000033!important;
+  padding: 8px 15px !important;
+  border-radius: 5px;
+}
+
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: white;
+  color: #000033 !important;
+  padding: 8px 15px !important;
+  border-radius: 5px;
+}
+
+.whatsapp-button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Hamburger menu - hidden on desktop */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 4px;
+  background-color: #000033;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Mobile sidebar - hidden by default */
+.mobile-sidebar {
+  display: none;
+}
+
+/* Overlay for mobile - hidden by default */
+.overlay {
+  display: none;
+}
+
+/* Mobile styles - only apply these changes on small screens */
+@media (max-width: 600px) {
+  /* Hide desktop navigation on mobile */
+  .nav-links {
+    display: none;
+  }
+  
+  /* Show hamburger menu on mobile */
+  .hamburger {
+    display: block;
+  }
+  
+  /* Mobile sidebar - sliding in from left */
+  .mobile-sidebar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -60%; /* Start off-screen */
+    width: 60%; /* 40% width as requested */
+    height: 100%; /* Full height */
+    background-color: white;
+    z-index: 1001;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    overflow-y: auto;
+  }
+  
+  .mobile-sidebar.active {
+    left: 0; /* Slide in from left */
+  }
+  
+  /* Logo at top of sidebar */
+  .mobile-sidebar .sidebar-logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #000033;
+    padding: 20px 15px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 15px;
+  }
+  
+  /* Mobile navigation links */
+  .mobile-sidebar ul {
+    list-style: none;
+    padding: 0 15px;
+  }
+  
+  .mobile-sidebar ul li {
+    margin-bottom: 15px;
+  }
+  
+  .mobile-sidebar ul li a {
+    color: #000033;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 8px 5px;
+    font-size: 1.1rem;
+  }
+  
+  /* Overlay when sidebar is active */
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+  }
+  
+  .overlay.active {
+    display: block;
+  }
+  
+  /* Hamburger animation */
+  .hamburger.active div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .hamburger.active div:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .nav-links ul {
-    display: none;
-    flex-direction: column;
-    background: #2c3e50;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 200px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-links ul.active {
-    display: flex;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
+ 
   .team-container {
     flex-direction: column;
   }
@@ -99,31 +256,47 @@ section#about, section#mission, section#vision {
 </head>
 <body>
 
+  
   <header class="header">
     <div class="logo">Galaxies Coders - MPOS</div>
-    
     <button class="hamburger" id="hamburger">
       <div></div>
       <div></div>
       <div></div>
     </button>
-    <nav class="nav">
-      <div class="nav-links" id="nav-links">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="features.html">features</a></li>
-          <li><a href="company.html">Company</a></li>
-          <li><a href="rating.html">Ratings</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
-            <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
-            Chat with Us
-          </a></li>
-          <li><a href="#contact" class="btn-consultation">Book A Free Demo</a></li>
-        </ul>
-      </div>
+    <nav class="nav-links" id="nav-links">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="company.html">Company</a></li>
+        <li><a href="rating.html">Ratings</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
+          <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
+          Chat with Us
+        </a></li>
+        <li><a href="contact.html" class="btn-consultation">Book A Free Demo</a></li>
+      </ul>
     </nav>
   </header>
+   <!-- Mobile Sidebar (only shown on small screens) -->
+   <div class="mobile-sidebar" id="mobile-sidebar">
+    <div class="sidebar-logo">Galaxies Coders - MPOS</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="company.html">Company</a></li>
+      <li><a href="rating.html">Ratings</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
+        <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
+        Chat with Us
+      </a></li>
+      <li><a href="#contact" class="btn-consultation">Book A Free Demo</a></li>
+    </ul>
+  </div>
+   <!-- Overlay for mobile sidebar -->
+   <div class="overlay" id="overlay"></div>
     <!-- About Us Section -->
     <section id="about">
         <h3>About Us</h3>
@@ -204,6 +377,11 @@ section#about, section#mission, section#vision {
     <footer class="footer">
         <p>© 2025 POS Blog. All rights reserved.</p>
     </footer>
+
+    <a href="https://wa.me/254790352338" target="_blank" class="whatsapp-chat" style="position: fixed; bottom: 100px; left: 80%; transform: translateX(-80%);">
+      <img src="whatsapp.png" alt="Chat with Us on WhatsApp" style="max-width:50px;">
+    </a>
+    
     <button class="up-button" id="upButton">
         &#x25B2; Up
       </button>
@@ -230,41 +408,37 @@ upButton.addEventListener('click', () => {
 });
 
          
-        // Toggle the visibility of the dropdown content
-function toggleDropdown(event) {
-    event.preventDefault();
-    const dropdown = event.target.closest('.dropdown');
-    dropdown.classList.toggle('active');
-}
-
-        
-        // Toggle the sidebar on mobile
-function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const menuIcon = document.getElementById("menuIcon");
-
-    // Toggle the active class on the sidebar
-    sidebar.classList.toggle("active");
-
-    // Toggle the hamburger and close icon
-    menuIcon.classList.toggle("fa-bars");
-    menuIcon.classList.toggle("fa-times");
-}
-
-// Close the sidebar if the screen size is large enough
-window.addEventListener('resize', function() {
-    if (window.innerWidth > 768) {
-        const sidebar = document.getElementById("sidebar");
-        const menuIcon = document.getElementById("menuIcon");
-        
-        // Remove the 'active' class to hide the sidebar
-        sidebar.classList.remove("active");
-
-        // Reset the menu icon to its hamburger state
-        menuIcon.classList.add("fa-bars");
-        menuIcon.classList.remove("fa-times");
-    }
-});
+         // Hamburger menu toggle
+  // Mobile sidebar toggle - only works on small screens
+  const hamburger = document.getElementById('hamburger');
+      const mobileSidebar = document.getElementById('mobile-sidebar');
+      const overlay = document.getElementById('overlay');
+      
+      hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        mobileSidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = mobileSidebar.classList.contains('active') ? 'hidden' : '';
+      });
+      
+      // Close sidebar when clicking overlay
+      overlay.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        mobileSidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      // Close sidebar when clicking links
+      const sidebarLinks = document.querySelectorAll('.mobile-sidebar ul li a');
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          mobileSidebar.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
 
         window.onscroll = function() {
         var header = document.querySelector("header");

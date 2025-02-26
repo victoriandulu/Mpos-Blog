@@ -10,28 +10,45 @@
     <header class="header">
         <div class="logo">Galaxies Coders - MPOS</div>
         <button class="hamburger" id="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </button>
-        <nav class="nav">
-            <div class="nav-links" id="nav-links">
-                <ul>
-                    <li><a href="index.html#features">Home</a></li>
-                    <li><a href="features.html">Features</a></li>
-                    <li><a href="company.html">Company</a></li>
-                    <li><a href="#ratings">Ratings</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
-                        <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
-                        Chat with Us
-                    </a></li>
-                    <li><a href="#contact" class="btn-consultation">Book A Free Demo</a></li>
-                </ul>
-            </div>
+        <nav class="nav-links" id="nav-links">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="company.html">Company</a></li>
+            <li><a href="rating.html">Ratings</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
+              <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
+              Chat with Us
+            </a></li>
+            <li><a href="contact.html" class="btn-consultation">Book A Free Demo</a></li>
+          </ul>
         </nav>
-    </header>
-
+      </header>
+       <!-- Mobile Sidebar (only shown on small screens) -->
+       <div class="mobile-sidebar" id="mobile-sidebar">
+        <div class="sidebar-logo">Galaxies Coders - MPOS</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="company.html">Company</a></li>
+          <li><a href="rating.html">Ratings</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://wa.me/254790352338" target="_blank" class="whatsapp-button">
+            <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
+            Chat with Us
+          </a></li>
+          <li><a href="#contact" class="btn-consultation">Book A Free Demo</a></li>
+        </ul>
+      </div>
+    
+      <!-- Overlay for mobile sidebar -->
+      <div class="overlay" id="overlay"></div>>
+    
     <!-- Ratings Section -->
     <section id="ratings" class="ratings-section">
         <h2></h2>
@@ -88,10 +105,13 @@
             </div>
         </div>
     </section>
-
+    <a href="https://wa.me/254790352338" target="_blank" class="whatsapp-chat" style="position: fixed; bottom: 100px; left: 80%; transform: translateX(-80%);">
+        <img src="whatsapp.png" alt="Chat with Us on WhatsApp" style="max-width:50px;">
+      </a>
     <footer class="footer">
         <p>&copy; 2025 Galaxies Coders - MPOS. All rights reserved.</p>
     </footer>
+
 
     <script>
         // Handle form submission
@@ -127,18 +147,42 @@
       }
     });
 
-    upButton.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
+    
+
+   // Hamburger menu toggle
+// Mobile sidebar toggle - only works on small screens
+const hamburger = document.getElementById('hamburger');
+    const mobileSidebar = document.getElementById('mobile-sidebar');
+    const overlay = document.getElementById('overlay');
+    
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('active');
+      mobileSidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = mobileSidebar.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Close sidebar when clicking overlay
+    overlay.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      mobileSidebar.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    // Close sidebar when clicking links
+    const sidebarLinks = document.querySelectorAll('.mobile-sidebar ul li a');
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileSidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
       });
     });
 
     </script>
 
-     <!-- WhatsApp Chat Icon -->
-<a href="https://wa.me/254790352338" target="_blank" class="whatsapp-chat">
-    <img src="whatsapp.png" alt="Chat with Us on WhatsApp">
-  </a>
+  
 </body>
 </html>

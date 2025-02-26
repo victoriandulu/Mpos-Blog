@@ -26,7 +26,7 @@ body, html {
 }
 
 
-
+/* Header styles - Keep your original desktop header */
 .header {
   background-color: white;
   color: #000033;
@@ -35,113 +35,176 @@ body, html {
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  width: 98%;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 1000;
-  flex-wrap: nowrap; /* Prevent wrapping for larger screens */
-  overflow: hidden; /* Hide any overflow on larger screens */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-between; /* Distribute items evenly */
-  gap: 20px; /* Space between nav items */
-}
-
-.nav ul li {
-  margin-left: 0; /* Remove left margin to prevent extra space */
-}
-
-.nav ul li a {
-  color: #000033;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-
-.main-content {
-  margin-top: 60px; /* Adds space at the top of the page to prevent content from being hidden behind the fixed header */
-}
-
-
-.header .logo {
+.logo {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-/* Hamburger Menu Styles */
+/* Navigation styles - Keep your original desktop navigation */
+.nav-links ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links ul li a {
+  color: #000033;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-consultation {
+  background-color: #000033;
+  color:  #000033!important;
+  padding: 8px 15px !important;
+  border-radius: 5px;
+}
+
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #25d366;
+  color: #000033 !important;
+  padding: 8px 15px !important;
+  border-radius: 5px;
+}
+.whatsapp-chat{
+  width: 20px;
+  height: 20px;
+}
+.whatsapp-button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Hamburger menu - hidden on desktop */
 .hamburger {
   display: none;
   cursor: pointer;
-  font-size: 24px;
-  color: #000033;
   background: none;
   border: none;
   padding: 5px;
+  z-index: 1001;
 }
 
 .hamburger div {
   width: 30px;
   height: 4px;
-  background-color:#000033 ;
+  background-color: #000033;
   margin: 6px 0;
   transition: 0.4s;
 }
 
-.nav-links {
-  display: flex;
+/* Mobile sidebar - hidden by default */
+.mobile-sidebar {
+  display: none;
 }
 
-/* For small screens */
+/* Overlay for mobile - hidden by default */
+.overlay {
+  display: none;
+}
+
+/* Mobile styles - only apply these changes on small screens */
 @media (max-width: 600px) {
-  .hamburger {
-    display: block; /* Show hamburger on small screens */
-    height: 100%;
-  }
-.header .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-  .nav ul {
-    display: none; /* Hide navigation links by default */
-    flex-direction: column;
-    width: 100%;
-    padding: 10px 0;
-    background-color: whitesmoke;
-  }
-
-  .nav ul li {
-    margin-left: 100px;
-    margin-bottom: 10px;
-  }
-
-  .nav-links.active ul {
-    display: flex; /* Show navigation links when the hamburger is clicked */
-  }
-
+  /* Hide desktop navigation on mobile */
   .nav-links {
-    width: 100%;
+    display: none;
   }
-
-  .nav-links ul li a {
-    font-size: 1.2rem;
+  
+  /* Show hamburger menu on mobile */
+  .hamburger {
+    display: block;
   }
-}
-
-/* Hamburger active state (animation for transforming into 'X' when open) */
-.hamburger.active div:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.hamburger.active div:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active div:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
+  
+  /* Mobile sidebar - sliding in from left */
+  .mobile-sidebar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -60%; /* Start off-screen */
+    width: 60%; /* 40% width as requested */
+    height: 100%; /* Full height */
+    background-color: white;
+    z-index: 1001;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    overflow-y: auto;
+  }
+  
+  .mobile-sidebar.active {
+    left: 0; /* Slide in from left */
+  }
+  
+  /* Logo at top of sidebar */
+  .mobile-sidebar .sidebar-logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #000033;
+    padding: 20px 15px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 15px;
+  }
+  
+  /* Mobile navigation links */
+  .mobile-sidebar ul {
+    list-style: none;
+    padding: 0 15px;
+  }
+  
+  .mobile-sidebar ul li {
+    margin-bottom: 15px;
+  }
+  
+  .mobile-sidebar ul li a {
+    color: #000033;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 8px 5px;
+    font-size: 1.1rem;
+  }
+  
+  /* Overlay when sidebar is active */
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+  }
+  
+  .overlay.active {
+    display: block;
+  }
+  
+  /* Hamburger animation */
+  .hamburger.active div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .hamburger.active div:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
 }
 .main-content {
   padding: 20px;
@@ -878,7 +941,9 @@ body, html {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  overflow: hidden;
 }
+
 
 .demo-title {
   font-size: 24px;
@@ -894,10 +959,11 @@ body, html {
   background-color: #f3f4f6;
   border-radius: 8px;
   padding: 20px;
-  height: 400px;
-  overflow-y: auto;
+  height: auto;
+  overflow-y: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 
 /* Carousel Pages */
 .carousel-page {
@@ -1048,7 +1114,7 @@ body, html {
   }
   
   .carousel {
-      height: 600px;
+      height: auto;
   }
 }
 
